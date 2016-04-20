@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Basketball</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+	<header>
+		<h1>
+			<div>
+				<img src="b6.1.png" alt="Logo nicht verfügbar"/>
+			</div>
+		</h1>
+		
+			<div>
+				<ul>
+					<li><a href="index.html"> home </a></li>
+					<li><a href="addPlayer.html"> add player </a></li>
+					<li><a href="players.html"> players </a></li>
+				</ul>
+			</div>				
+	</header>
+	
+	<main>
+		<section>
+			<center>
+				<div id="box1" class="boxgroesse">
+
+					<form action="createPlayer.php" method="GET">
+						<table id="tabelle2">
+							<tr><td class="tInhalt"><label for="vorname">Vorname: </label></td>
+								<td class="tInhalt"><input type="text" id="vorname" name="vorname"></td></tr>
+						
+							<tr><td class="tInhalt"><label for="name">Nachname: </label></td>
+								<td class="tInhalt"><input type="text" id="name" name="name"></td></tr>
+						
+							<tr><td class="tInhalt"><label for="verein">Verein: </label></td>
+								<td class="tInhalt"><input type="text" id="verein" name="verein"></td></tr>
+						
+							<tr><td class="tInhalt"><label for="hcoach">Headcoach: </label></td>
+								<td class="tInhalt"><input type="text" id="hcoach" name="hcoach"></td></tr>
+						
+							<tr><td class="tInhalt"><label for="acoach">Assistant Coach: </label></td>
+								<td class="tInhalt"><input type="text" id="acoach" name="acoach"></td></tr>
+					
+							<tr><td class="tInhalt"><label for="aktiv">aktiv:</label>
+								<td class="tInhalt">
+									<input type="checkbox" name="aktiv" id="ja" value="ja">ja</input>
+									<input type="checkbox" name="aktiv" id="nein" value="nein">nein</input></td></tr>
+						
+							<tr><td class="tInhalt"><label for="position">Position:</label> 
+								<td class="tInhalt"><select name="position" size="1">
+									<option value="wing" selected="wing">Wing</option>
+									<option value="center">Center</option>
+									<option value="guard">Guard</option>
+									<option value="powerForward">Power Forward</option>
+									<option value="smallForward">Small Forward</option> 
+									</select></td>
+								</td></tr>
+						
+							<tr><td class="tInhalt"><label for="rueckennummer">Rückennummer: </label></td>
+								<td class="tInhalt"><input type="number" id="number" name="number" min="4" max="14" step="1.0"></td></tr>
+						
+							<tr><td class="tInhalt"><label for="jahr">Geburtsjahr: </label></td>
+								<td class="tInhalt"><input type="date" id="jahr" name="jahr"></td></tr>
+						
+							<tr><td class="tInhalt"><label for="favorit">Favorit:</label></td>
+								<td class="tInhalt"><input type="checkbox" name="favorit" id="favorit"></td></tr>
+						
+							<tr><td colspan="2" class="tInhalt"><input type="submit" name="submit" value="Submit" id= "submit" formaction="http://martinakraus.net/createPlayer.php"/></td></tr>
+						</table>
+					</form>
+				</div>
+			</center>
+		</section>
+		
+	</main>
+	<footer>
+	</footer>
+	
+</body>
+</html>
