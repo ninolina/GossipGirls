@@ -29,26 +29,38 @@
 
 					<form action="createPlayer.php" method="GET">
 						<table id="tabelle2">
-							<tr><td class="tInhalt"><label for="vorname">Vorname: </label></td>
-								<td class="tInhalt"><input required type="text" pattern="[A-z]*"  id="vorname" name="vorname"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="vorname">Vorname: </label></td>
+								<td class="tInhalt"><input required type="text" pattern="[A-z]*"  id="vorname" name="vorname"></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="name">Nachname: </label></td>
-								<td class="tInhalt"><input required type="text" pattern="[A-z]*"  id="name" name="name"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="name">Nachname: </label></td>
+								<td class="tInhalt"><input required type="text" pattern="[A-z]*"  id="name" name="name"></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="verein">Verein: </label></td>
-								<td class="tInhalt"><input required type="text" pattern="[A-z]*" id="verein" name="verein"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="verein">Verein: </label></td>
+								<td class="tInhalt"><input required type="text" pattern="[A-z]*" id="verein" name="verein"></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="hcoach">Headcoach: </label></td>
-								<td class="tInhalt"><input required type="text" pattern="[A-z]*" id="hcoach" name="hcoach"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="hcoach">Headcoach: </label></td>
+								<td class="tInhalt"><input required type="text" pattern="[A-z]*" id="hcoach" name="hcoach"></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="acoach">Assistant Coach: </label></td>
-								<td class="tInhalt"><input required type="text" pattern="[A-z]*" id="acoach" name="acoach"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="acoach">Assistant Coach: </label></td>
+								<td class="tInhalt"><input required type="text" pattern="[A-z]*" id="acoach" name="acoach"></td>
+							</tr>
 					
-							<tr><td class="tInhalt"><label for="aktiv">aktiv:</label>
-								<td class="tInhalt">
-									<input required type="checkbox" name="aktiv" id="ja" value="ja">ja</input></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="aktiv">aktiv:</label>
+								<td class="tInhalt"><input required type="checkbox" name="aktiv" id="ja" value="ja">ja</input></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="position">Position:</label> 
+							<tr>
+								<td class="tInhalt"><label for="position">Position:</label> 
 								<td class="tInhalt"><select name="position" size="1">
 									<option value="wing" selected="wing">Wing</option>
 									<option value="center">Center</option>
@@ -56,18 +68,27 @@
 									<option value="powerForward">Power Forward</option>
 									<option value="smallForward">Small Forward</option> 
 									</select></td>
-								</td></tr>
+								</td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="rueckennummer">Rückennummer: </label></td>
-								<td class="tInhalt"><input required type="number" id="number" name="number" min="4" max="15" step="1.0"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="rueckennummer">Rückennummer: </label></td>
+								<td class="tInhalt"><input required type="number" id="number" name="number" min="4" max="15" step="1.0"></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="jahr">Geburtsjahr: </label></td>
-								<td class="tInhalt"><input required type="date" id="jahr" name="jahr" min="0000-00-00" max="2014-12-31"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="jahr">Geburtsjahr: </label></td>
+								<td class="tInhalt"><input required type="date" id="jahr" name="jahr" min="0000-00-00" max="2014-12-31"></td>
+							</tr>
 						
-							<tr><td class="tInhalt"><label for="favorit">Favorit:</label></td>
-								<td class="tInhalt"><input type="checkbox" name="favorit" id="favorit"></td></tr>
+							<tr>
+								<td class="tInhalt"><label for="favorit">Favorit:</label></td>
+								<td class="tInhalt"><input type="checkbox" name="favorit" id="favorit"></td>
+							</tr>
 						
-							<tr><td colspan="2" class="tInhalt"><input type="submit" name="submit" value="Submit" id= "submit" formaction="http://martinakraus.net/createPlayer.php"/></td></tr>
+							<tr>
+								<td colspan="2" class="tInhalt"><input type="submit" name="submit" value="Submit" id= "submit" formaction="http://martinakraus.net/createPlayer.php"/></td>
+							</tr>
 						</table>
 					</form>
 				</div>
@@ -75,8 +96,6 @@
 		</section>
 		
 	</main>
-	<footer>
-	</footer>
 	
 </body>
 </html>
