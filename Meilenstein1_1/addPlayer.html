@@ -4,6 +4,82 @@
   <title>Basketball</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="style.css">
+  
+<script type="text/javascript">
+
+	function checkForm() {
+		var strFehler='';
+	
+		if(document.forms[0].vorname.value=="")
+		strFehler += "Feld Vorname ist leer\n";
+		
+		if(document.forms[0].name.value=="")
+		strFehler += "Feld Name ist leer\n";
+	
+		if(document.forms[0].verein.value=="")
+		strFehler += "Feld Verein ist leer\n";
+	
+		if(document.forms[0].hcoach.value=="")
+		strFehler += "Feld Headcoach ist leer\n";
+	
+		if(document.forms[0].acoach.value=="")
+		strFehler += "Feld Assistant Coach ist leer\n";
+		
+		if (validName(document.forms[0].name.value)== true) {  		//das 1. Formular wird abgefragt
+			strFehler += "Im Namen steckt der Wurm drin!\n";
+		}
+		
+		if (validVorname(document.forms[0].vorname.value)== true) {  		//das 1. Formular wird abgefragt
+			strFehler += "Im Vornamen steckt der Wurm drin!\n";
+		}
+		
+		if (validVerein(document.forms[0].verein.value)== true) {  		//das 1. Formular wird abgefragt
+			strFehler += "Im Feld Verein steckt der Wurm drin!\n";
+		}
+		
+		if (validHcoach(document.forms[0].hcoach.value)== true) {  		//das 1. Formular wird abgefragt
+			strFehler += "Im Feld Headcoach steckt der Wurm drin!\n";
+		}
+		
+		if (validAcoach(document.forms[0].acoach.value)== true) {  		//das 1. Formular wird abgefragt
+			strFehler += "Im Feld Assistant Coach steckt der Wurm drin!\n";
+		}
+
+		if(strFehler.length>0) {
+			alert("Festgestellte Probleme: \n\n"+strFehler);
+			return(false);
+			}
+			
+
+}
+	
+function validName(name) {
+  var strReg = /[0-9]/;
+  return(strReg.test(name));
+}
+
+function validVorname(vorname) {
+  var strReg = /[0-9]/;
+  return(strReg.test(vorname));
+}
+
+function validVerein(verein) {
+  var strReg = /[0-9]/;
+  return(strReg.test(verein));
+}
+
+function validHcoach(hcoach) {
+  var strReg = /[0-9]/;
+  return(strReg.test(hcoach));
+}
+
+function validAcoach(acoach) {
+  var strReg = /[0-9]/;
+  return(strReg.test(acoach));
+}
+
+
+</script>
 </head>
 
 <body>
@@ -27,7 +103,7 @@
 			<center>
 				<div class="boxgroesse">
 
-					<form action="createPlayer.php" method="GET">
+					<form action="createPlayer.php" method="GET" onsubmit='return checkForm()'>
 						<table id="tabelle2">
 							<tr>
 								<td class="tInhalt"><label for="vorname">Vorname: </label></td>
