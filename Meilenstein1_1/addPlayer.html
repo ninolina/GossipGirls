@@ -8,74 +8,135 @@
 <script type="text/javascript">
 
 	function checkForm() {
-		var strFehler='';
+		var error = false;
+		var textRule = /^[a-zA-Z]+$/;
+		var vorname = document.getElementById('vorname');
+		var errvorname = document.getElementById('errvorname');
+		var errvorname1 = document.getElementById('errvorname1');
+		var name = document.getElementById('name');
+		var errname = document.getElementById('errname');
+		var errname1 = document.getElementById('errname1'); 
+		var verein = document.getElementById('verein');
+		var errverein = document.getElementById('errverein');
+		var errverein1 = document.getElementById('errverein1'); 
+		var hcoach = document.getElementById('hcoach');
+		var errhcoach = document.getElementById('errhcoach');
+		var errhcoach1 = document.getElementById('errhcoach1');
+		var acoach = document.getElementById('acoach');
+		var erracoach = document.getElementById('erracoach');
+		var erracoach1 = document.getElementById('erracoach1');
+		var number = document.getElementById('number');
+		var errnumber = document.getElementById('errnumber');
+		var errnumber1 = document.getElementById('errnumber1');
+		var jahr = document.getElementById('jahr');
+		var errjahr = document.getElementById('errjahr');
+		var errjahr1 = document.getElementById('errjahr1');
 	
-		if(document.forms[0].vorname.value=="")
-		strFehler += "Feld Vorname ist leer\n";
-		
-		if(document.forms[0].name.value=="")
-		strFehler += "Feld Name ist leer\n";
-	
-		if(document.forms[0].verein.value=="")
-		strFehler += "Feld Verein ist leer\n";
-	
-		if(document.forms[0].hcoach.value=="")
-		strFehler += "Feld Headcoach ist leer\n";
-	
-		if(document.forms[0].acoach.value=="")
-		strFehler += "Feld Assistant Coach ist leer\n";
-		
-		if (validName(document.forms[0].name.value)== true) {  		//das 1. Formular wird abgefragt
-			strFehler += "Im Namen steckt der Wurm drin!\n";
+		if(vorname.value==""){
+			errvorname1.setAttribute("style","visibility:visible");
+			vorname.style.borderColor = "red";
+			error = true;
+		}else if (!textRule.test(vorname.value)){
+			errvorname.setAttribute("style","visibility:visible");
+			errvorname1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			errvorname1.setAttribute("style","visibility:hidden");
+			errvorname.setAttribute("style","visibility:hidden");
+			vorname.style.borderColor = "";
 		}
 		
-		if (validVorname(document.forms[0].vorname.value)== true) {  		//das 1. Formular wird abgefragt
-			strFehler += "Im Vornamen steckt der Wurm drin!\n";
+		if(name.value==""){ 
+			errname1.setAttribute("style","visibility:visible");
+			name.style.borderColor = "red";
+			error = true;
+		}else if (!textRule.test(name.value)){
+			errname.setAttribute("style","visibility:visible");
+			errname1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			errname1.setAttribute("style","visibility:hidden");
+			errname.setAttribute("style","visibility:hidden");
+			name.style.borderColor = "";
 		}
 		
-		if (validVerein(document.forms[0].verein.value)== true) {  		//das 1. Formular wird abgefragt
-			strFehler += "Im Feld Verein steckt der Wurm drin!\n";
+		if(verein.value==""){
+			errverein1.setAttribute("style","visibility:visible");
+			verein.style.borderColor = "red";
+			error = true;
+		}else if (!textRule.test(verein.value)){
+			errverein.setAttribute("style","visibility:visible");
+			errverein1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			errverein1.setAttribute("style","visibility:hidden");
+			errverein.setAttribute("style","visibility:hidden");
+			verein.style.borderColor = "";
 		}
-		
-		if (validHcoach(document.forms[0].hcoach.value)== true) {  		//das 1. Formular wird abgefragt
-			strFehler += "Im Feld Headcoach steckt der Wurm drin!\n";
+		if(hcoach.value==""){
+			errhcoach1.setAttribute("style","visibility:visible");
+			hcoach.style.borderColor = "red";
+			error = true;
+		}else if (!textRule.test(hcoach.value)){
+			errhcoach.setAttribute("style","visibility:visible");
+			errhcoach1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			errhcoach1.setAttribute("style","visibility:hidden");
+			errhcoach.setAttribute("style","visibility:hidden");
+			hcoach.style.borderColor = "";
 		}
-		
-		if (validAcoach(document.forms[0].acoach.value)== true) {  		//das 1. Formular wird abgefragt
-			strFehler += "Im Feld Assistant Coach steckt der Wurm drin!\n";
-		}
-
-		if(strFehler.length>0) {
-			alert("Festgestellte Probleme: \n\n"+strFehler);
-			return(false);
-			}
-			
-
-}
 	
-function validName(name) {
-  var strReg = /[0-9]/;
-  return(strReg.test(name));
-}
-
-function validVorname(vorname) {
-  var strReg = /[0-9]/;
-  return(strReg.test(vorname));
-}
-
-function validVerein(verein) {
-  var strReg = /[0-9]/;
-  return(strReg.test(verein));
-}
-
-function validHcoach(hcoach) {
-  var strReg = /[0-9]/;
-  return(strReg.test(hcoach));
-}
-
-function validAcoach(acoach) {
-  var strReg = /[0-9]/;
-  return(strReg.test(acoach));
+		if(document.getElementById('acoach').value==""){
+			erracoach1.setAttribute("style","visibility:visible");
+			acoach.style.borderColor = "red";
+			error = true;
+		}else if (!textRule.test(acoach.value)){
+			erracoach.setAttribute("style","visibility:visible");
+			erracoach1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			erracoach1.setAttribute("style","visibility:hidden");
+			erracoach.setAttribute("style","visibility:hidden");
+			acoach.style.borderColor = "";
+		} 
+		if(number.value==""){ 
+			errnumber1.setAttribute("style","visibility:visible");
+			number.style.borderColor = "red";
+			error = true;
+		}else if (number.value<4 || number.value>15){
+			errnumber.setAttribute("style","visibility:visible");
+			errnumber1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			errnumber.setAttribute("style","visibility:hidden");
+			errnumber1.setAttribute("style","visibility:hidden");
+			number.style.borderColor = "";
+		}
+		
+		if(jahr.value==""){ 
+			errjahr1.setAttribute("style","visibility:visible");
+			jahr.style.borderColor = "red";
+			error = true;
+		}else if (jahr.value<1 || jahr.value>2015){
+			errjahr.setAttribute("style","visibility:visible");
+			errjahr1.setAttribute("style","visibility:hidden");
+			error = true;
+		}else{
+			errjahr.setAttribute("style","visibility:hidden");
+			errjahr1.setAttribute("style","visibility:hidden");
+			jahr.style.borderColor = "";
+		}
+		
+		//console.log(error);
+		
+		if(!error){
+			return true;
+		}else{
+			event.preventDefault();
+			alert("Einige Eingaben sind fehlerhaft. Bitte überprüfen Sie Ihre Eingaben!");
+			return false;
+		}
 }
 
 
@@ -103,31 +164,42 @@ function validAcoach(acoach) {
 			<center>
 				<div class="boxgroesse">
 
-					<form action="createPlayer.php" method="GET" onsubmit='return checkForm()'>
+					<form action="createPlayer.php" method="GET" onsubmit='checkForm(event);'>
 						<table id="tabelle2">
 							<tr>
-								<td class="tInhalt"><label for="vorname">Vorname: </label></td>
-								<td class="tInhalt"><input type="text" id="vorname" name="vorname"></td>
+								<td class="tInhalt"><label for="vorname">Vorname: </label></td> 
+								<td class="tInhalt"><input type="text" id="vorname" name="vorname">
+								<span id="errvorname1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="errvorname" class="error">Nur Buchstaben sind erlaubt!</span></td>
+								
 							</tr>
 						
 							<tr>
 								<td class="tInhalt"><label for="name">Nachname: </label></td>
-								<td class="tInhalt"><input type="text" id="name" name="name"></td>
+								<td class="tInhalt"><input type="text" id="name" name="name">
+								<span id="errname1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="errname" class="error">Nur Buchstaben sind erlaubt!</span></td>
 							</tr>
 						
 							<tr>
 								<td class="tInhalt"><label for="verein">Verein: </label></td>
-								<td class="tInhalt"><input type="text" id="verein" name="verein"></td>
+								<td class="tInhalt"><input type="text" id="verein" name="verein">
+								<span id="errverein1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="errverein" class="error">Nur Buchstaben sind erlaubt!</span></td>
 							</tr>
 						
 							<tr>
 								<td class="tInhalt"><label for="hcoach">Headcoach: </label></td>
-								<td class="tInhalt"><input type="text" id="hcoach" name="hcoach"></td>
+								<td class="tInhalt"><input type="text" id="hcoach" name="hcoach">
+								<span id="errhcoach1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="errhcoach" class="error">Nur Buchstaben sind erlaubt!</span></td>
 							</tr>
 						
 							<tr>
 								<td class="tInhalt"><label for="acoach">Assistant Coach: </label></td>
-								<td class="tInhalt"><input type="text" id="acoach" name="acoach"></td>
+								<td class="tInhalt"><input type="text" id="acoach" name="acoach">
+								<span id="erracoach1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="erracoach" class="error">Nur Buchstaben sind erlaubt!</span></td>
 							</tr>
 					
 							<tr>
@@ -137,24 +209,30 @@ function validAcoach(acoach) {
 						
 							<tr>
 								<td class="tInhalt"><label for="position">Position:</label> 
-								<td class="tInhalt"><select name="position" size="1">
-									<option value="wing" selected="wing">Wing</option>
-									<option value="center">Center</option>
-									<option value="guard">Guard</option>
-									<option value="powerForward">Power Forward</option>
-									<option value="smallForward">Small Forward</option> 
-									</select></td>
+								<td class="tInhalt">
+									<select name="position" size="1">
+										<option value="wing" selected="wing">Wing</option>
+										<option value="center">Center</option>
+										<option value="guard">Guard</option>
+										<option value="powerForward">Power Forward</option>
+										<option value="smallForward">Small Forward</option> 
+									</select>
+								</td>
 								</td>
 							</tr>
 						
-							<tr>
+							<tr> 
 								<td class="tInhalt"><label for="rueckennummer">Rückennummer: </label></td>
-								<td class="tInhalt"><input required type="number" id="number" name="number" min="4" max="15" step="1.0"></td>
+								<td class="tInhalt"><input type="number" id="number" name="number">
+								<span id="errnumber1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="errnumber" class="error">Nur die Zahlen zwischen 4 und 15 sind erlaubt!</span></td>
 							</tr>
 						
 							<tr>
 								<td class="tInhalt"><label for="jahr">Geburtsjahr: </label></td>
-								<td class="tInhalt"><input required type="date" id="jahr" name="jahr" min="0000-00-00" max="2015-12-31"></td>
+								<td class="tInhalt"><input type="number" id="jahr" name="jahr">
+								<span id="errjahr1" class="error">Das ist ein Pflichtfeld!</span>
+								<span id="errjahr" class="error">Nur die Zahlen zwischen 1 und 2015 sind erlaubt!</span></td>
 							</tr>
 						
 							<tr>
@@ -163,7 +241,9 @@ function validAcoach(acoach) {
 							</tr>
 						
 							<tr>
-								<td colspan="2" class="tInhalt"><input type="submit" name="submit" value="Submit" id= "submit" formaction="http://martinakraus.net/createPlayer.php"/></td>
+								<td colspan="2" class="tInhalt">
+								  <input type="submit" name="submit" value="Submit" id= "submit" formaction="http://martinakraus.net/createPlayer.php"/>
+								</td>
 							</tr>
 						</table>
 					</form>
