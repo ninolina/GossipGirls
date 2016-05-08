@@ -4,6 +4,7 @@
   <title>Basketball</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="data.js"></script>
   
 <script type="text/javascript">
 
@@ -164,7 +165,7 @@
 			<center>
 				<div class="boxgroesse">
 
-					<form action="createPlayer.php" method="GET" onsubmit='checkForm(event);'>
+					<form onsubmit='checkForm(event);'>
 						<table id="tabelle2">
 							<tr>
 								<td class="tInhalt"><label for="vorname">Vorname: </label></td> 
@@ -242,7 +243,7 @@
 						
 							<tr>
 								<td colspan="2" class="tInhalt">
-								  <input type="submit" name="submit" value="Submit" id= "submit" formaction="http://martinakraus.net/createPlayer.php"/>
+								  <input type="submit" name="submit" value="Submit" id= "submit" onclick="myFunction()"/>
 								</td>
 							</tr>
 						</table>
