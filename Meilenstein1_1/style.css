@@ -40,22 +40,21 @@ body {
 	margin-bottom: 2%;
 }
 
-table#tabelle1 {
+#tabelle1 {
 	border: 1px solid;
 	color: white;
 	margin-top: 5%;
 	width: 75%;
 	border-collapse: collapse;
-	padding: 0.5%;
 }
 
-table#tabelle1 th {
+th {
 	font-size: 30px;
 	border: 1px solid;
 	padding: 0.5%;
 }
 
-table#tabelle1 td {
+td {
 	text-align: left;
 	font-size: 20px;
 	border: 1px solid;
@@ -71,6 +70,7 @@ table#tabelle1 td {
 	color: white;	
 	margin-top: 5%;
 	width: 75%;
+	margin-left: 10%;
 }
 
 .tInhalt {
