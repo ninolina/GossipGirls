@@ -4,35 +4,30 @@
   <title>Basketball</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="myScript.js"></script>
 </head>
-
-<body>
-
+<body onload="getPlayers(false);setTabAll()">
 	<header>
 			<div id="logo">
 				<img src="b6.1.png" alt="Logo nicht verfügbar"/>
 			</div>
-
 			<div>
 				<ul>
-					<li><a href="index.html"> home </a></li>
-					<li><a href="addPlayer.html"> add player </a></li>
-					<li><a href="players.html"> players </a></li>
+					<li><a href="index.html"> Home </a></li>
+					<li><a href="addPlayer.html"> Add player </a></li>
+					<li><a href="players.html"> Players </a></li>
 				</ul>
 			</div>
 	</header>
-	
 	<main>	
-		
 		<section>
 			<center>
 				<div class="boxgroesse">
 					<table id="tabelle1">
 						<tr> 
-							<th colspan="3">All</th>
-							<th colspan="3">Favoriten</th> 
-						</tr>
-						
+							<th colspan="3" id="tabAll" onclick="getPlayers(false); setTabAll() "><a href="#">All</a></th>
+							<th colspan="3" id="tabFav" onclick="getPlayers(true); setTabFav()"><a href="#">Favoriten</a></th> 
+						</tr>	
 						<tr> 
 							<td class="title">Name</td> 
 							<td class="title">Verein</td> 
