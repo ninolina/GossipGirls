@@ -174,7 +174,7 @@ function sendForm(event) {
       }
 	  arr.forEach(function(object) {
 		var row = table.insertRow();
-		row.insertCell(0).innerHTML = object.name;
+		row.insertCell(0).innerHTML = object.name + " " + object.vorname;
 		row.insertCell(1).innerHTML = object.club;
 		row.insertCell(2).innerHTML = object.coach;
 		row.insertCell(3).innerHTML = object.position;
