@@ -14,6 +14,7 @@ a {
 	text-decoration: none;
 	font-size: 25px;
 	color: white;
+	font-weight: bold;
 }
 
 a:hover {
@@ -42,45 +43,45 @@ body {
 
 #tabelle1 {
 	border: 1px solid;
-	color: white;
+	color: black;
 	margin-top: 5%;
 	width: 75%;
 	border-collapse: collapse;
 }
 
 th {
-	font-size: 30px;
+	font-size: 20px;
 	border: 1px solid;
 	padding: 0.5%;
 }
 
 td {
 	text-align: left;
-	font-size: 20px;
+	font-size: 18px;
 	border: 1px solid;
 	padding: 0.5%;
 }
 
 .title {
-	font-size: 25px;
+	font-size: 20px;
 	text-align: center;
+	font-weight: bold;
 }
 
 #tabelle2 {
-	color: white;	
+	color: black;	
 	margin-top: 5%;
 	width: 75%;
-	margin-left: 10%;
 }
 
 .tInhalt {
 	border: none;
 	text-align: left;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 p {
-	color: white;
+	color: black;
 	text-align: left;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -95,5 +96,9 @@ p {
 	visibility: hidden;
 }
 
-
-
+#blackLink {
+	color: black;
+}
+#blackLink:hover {
+	color: orange;
+}
