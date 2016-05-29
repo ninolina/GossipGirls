@@ -5,7 +5,7 @@
 	  if (favorites) {
 		  extraParams = "?favorites=true";
 	  }
-	  xhr.open("GET", "http://localhost/api/players"+extraParams, true);
+	  xhr.open("GET", "http://localhost:3000/api/players"+extraParams, true);
 	  xhr.setRequestHeader("Content-type","application/json");
 	  xhr.onload = function(e) {
 		var data = JSON.parse(this.response);
