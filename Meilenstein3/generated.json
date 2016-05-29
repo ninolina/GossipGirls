@@ -240,29 +240,3 @@
     "favorit": false
   }
 ]
-
-
-
-
-
-
-/*[
-  '{{repeat(20)}}',
-  {
-    _id: '{{objectId()}}',
-    name: '{{surname()}}',
-    vorname: '{{firstName()}}',
-    club: '{{company().toUpperCase()}}',
-    coach: '{{firstName()}} {{surname()}}',
-   
-    position: function (tags) {
-      var pos = ['Center', 'Guard', 'Power Forward', 'Wing', 'Small Forward'];
-      return pos[tags.integer(0, pos.length - 1)];
-    },
-       
-    number: '{{integer(4,15)}}',
-    isActive: '{{bool()}}',
-    year: '{{integer(1950, 2015)}}',
-    favorit: '{{bool()}}'
-  }
-]*/
