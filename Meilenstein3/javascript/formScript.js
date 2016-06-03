@@ -137,7 +137,7 @@ function sendForm(event) {
 		var form = document.forms.namedItem("createPlayer");
         var formData = new FormData(form);
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST","http://localhost/api/players", true);
+		xhr.open("POST","http://127.0.0.1:3000/api/players", true);
 		xhr.onload = function(e) {
 		  if (xhr.status == 200) {
             alert("OK");
