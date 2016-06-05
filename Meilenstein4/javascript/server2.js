@@ -6,13 +6,14 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static('../'));
 
 var hostname = '127.0.0.1';
 var port = 3000;
 
 
 app.get('/', function (req, res) {
-  res.send('Hello!');
+  res.sendFile(path.join('index.html'));
 });
 
 var playersAll = require('../generated.json');
