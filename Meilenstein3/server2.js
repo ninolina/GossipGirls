@@ -15,8 +15,9 @@ app.get('/', function (req, res) {
   res.send('Hello!');
 });
 
-var playersAll = require('../generated.json');
+var parsedJSON;
 
+<<<<<<< Updated upstream
 
 app.get('/api/players', (req, res) => {				//ToDo
 	var query = req.param('favorites') || 'false';
@@ -28,6 +29,27 @@ app.get('/api/players', (req, res) => {				//ToDo
 	} else {
 		res.json(404, { message: 'FAIL' });
 	}	
+=======
+/*
+ * Loading JSON File from local FS (async call)
+ * sync call will be: var parsedJSON = require("./generated.json");
+ */
+require("fs").readFile("./generated.json", "utf8", function (err, data) {
+   if (err) throw err; // TODO error handling
+   parsedJSON = JSON.parse(data);
+});
+
+app.get("/api/players", function(req, res) {
+    if (req.param("favorites") === "true") {
+        //filter jsonObj only favorites true
+        var fav = parsedJSON.filter(function(x){
+           return x.favorit == true; 
+        });
+        res.send(fav); 
+    } else {
+        res.send(parsedJSON);
+    }
+>>>>>>> Stashed changes
 });
 
 app.get('/api/players', (req, res) => {				//ToDo
