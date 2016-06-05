@@ -1,7 +1,7 @@
 li {
 	list-style-type: none;
 	float: left;
-	width: 33%;
+	width: 24%;
 	font-size: 20px;
 	text-align: center;
 }
@@ -34,18 +34,18 @@ body {
 	background-color: rgba(240, 240, 240, 0.5);				/*Box transparent*/		
 	border-radius: 18px;
 	width: 80%;
-	height: 80%;
+	height: 1024px;
 	position: absolute;										/*Box geht über das Fenster*/
 	margin-left: 9%;
-	margin-top: 3%;
+	margin-top: 15px;
 	margin-bottom: 2%;
 }
 
 #tabelle1 {
 	border: 1px solid;
 	color: black;
-	margin-top: 5%;
-	width: 75%;
+	margin-top: 15px;
+	width: 95%;
 	border-collapse: collapse;
 }
 
@@ -70,7 +70,7 @@ td {
 
 #tabelle2 {
 	color: black;	
-	margin-top: 5%;
+	margin-top: 15px;
 	width: 75%;
 }
 
@@ -85,7 +85,7 @@ p {
 	text-align: left;
 	margin-left: 5%;
 	margin-right: 5%;
-	margin-top: 5%;
+	margin-top: 15px;
 	font-size: 20px;
 	text-align: center;
 }
@@ -101,4 +101,7 @@ p {
 }
 #blackLink:hover {
 	color: orange;
+}
+textarea {
+	margin-top: 15px;
 }
