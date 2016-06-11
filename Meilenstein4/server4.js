@@ -8,13 +8,13 @@ const port = 3000;
 const io = require('socket.io')(http);
 
 // Load JSON
-var jsonData = require('./generated.json');
+const jsonData = require('./generated.json');
 
 // Serve static content
 app.use(express.static(__dirname + '/public'));
 
 // Set content type to JSON
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.header('Content-Type','application/json');
     next();
 });
@@ -26,14 +26,14 @@ app.use(cors());
 
 // App routing
 app.route('/api/players')
-    .get(function(req, res) {
+    .get((req, res) => {
         if (req.query.favorites === "true") {
-            var output = jsonData.filter(function(x) {
+            let output = jsonData.filter((x) => {
                 return x.favorit == true;
             });
             res.send(output);
         } else if (typeof req.query.search != "undefined") {
-            var output = jsonData.filter(function(c) {
+            let output = jsonData.filter((c) => {
                 return c.name.charAt(0).toLowerCase() === req.query.search.toLowerCase();
             });
             res.send(output);
@@ -41,21 +41,21 @@ app.route('/api/players')
             res.send(jsonData);
         }
     })
-    .post(function(req, res) {
+    .post((req, res) => {
         res.json({
             message: "Spieler wurde erfolgreich gespeichert"
         });
     });
 
 app.route('/api/players/:id')
-    .put(function(req, res) {
+    .put((req, res) => {
         res.json({
             message: "Spieler mit der ID " + req.params.id + " wurde erfolgreich geupdatet"
         });
     })
-    .delete(function(req, res) {
-        var flag = false;
-        for (var pos in jsonData) {
+    .delete((req, res) => {
+        let flag = false;
+        for (let pos in jsonData) {
             if (req.params.id === jsonData[pos]._id) {
                 jsonData.splice(pos, 1);
                 flag = true;
@@ -69,11 +69,11 @@ app.route('/api/players/:id')
     });
 	
 // Socket.io
-io.on('connection', function(socket) {
+io.on('connection', (socket) => {
 	
 	var addedUser = false;
 	
-	socket.on('new message', function(data) {
+	socket.on('new message',  (data) => {
 		io.emit('new message', {
 			username: socket.username,
 			message: data
@@ -81,7 +81,7 @@ io.on('connection', function(socket) {
 		console.log('message:' + data);
 	});
 	
-	socket.on('add user', function(username) {
+	socket.on('add user', (username) => {
 		if (addedUser) return;
 		
 		// Store username in the socket session
@@ -94,6 +94,6 @@ io.on('connection', function(socket) {
 	});
 });
 
-http.listen(port, function() {
+http.listen(port, () => {
 	console.log("Server running at port: " + port);
 });
