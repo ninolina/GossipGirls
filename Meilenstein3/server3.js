@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 
+const bodyParser = require('body-parser');
+const cors = require('cors');
+app.use(bodyParser.json());
+app.use(cors());
+
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -11,6 +16,7 @@ app.use((req, res, next) => {
   res.header('Content-Type','application/json');
   next();
 });
+
 
 // App routing
 app.route('/api/players')
