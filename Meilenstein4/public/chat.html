@@ -30,7 +30,7 @@
 				<div class="boxgroesse">
 					<form name="chat" action="">
 						<textarea id="message" name="message" cols="50" rows="8" maxlength="140" readonly placeholder="Willkommen, bitte gebe deinen Usernamen ein"></textarea></br> 
-						<label for="username">Username:</label>
+						<label for="usereingabe">Usereingabe:</label>
 						<input type="text" id="user" name="user" size="25" maxlength="25"/>
 						<input type="submit" value="Senden" />
 					</form>
@@ -40,5 +40,16 @@
 		
 	</main>
 	
+	<script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+		var socket = io();
+			$('form').submit(function(){
+			socket.emit('chat message', $('#user').val());
+			$('#user').val('');
+			return false;
+		});
+	</script>
+
 </body>
 </html>
