@@ -9,7 +9,7 @@ app.use(cors());
 const hostname = '127.0.0.1';
 const port = 3000;
 
-var jsonData = require('./generated.json');
+const jsonData = require('./generated.json');
 
 // Set content type to JSON
 app.use((req, res, next) => {
@@ -21,13 +21,13 @@ app.use((req, res, next) => {
 // App routing
 app.route('/api/players')
 	.get((req, res) => {	// get favorites
-		if (req.query.favorites === "true") {
-			var output = jsonData.filter((x) => {
+		if (req.query.favorites === 'true') {
+			let output = jsonData.filter((x) => {
 				return x.favorit == true;
 			});
 			res.send(output);
-		} else if (typeof req.query.search != "undefined") {	// TODO Check Char
-			var output = jsonData.filter((c) => {
+		} else if (typeof req.query.search != 'undefined') {
+			let output = jsonData.filter((c) => {
 				return c.name.charAt(0).toLowerCase() === req.query.search.toLowerCase(); 
 			});
 			res.send(output);
@@ -37,19 +37,19 @@ app.route('/api/players')
 	})
 	.post((req, res) => {
 		res.json({
-			message: "Spieler wurde erfolgreich gespeichert"
+			message: 'Spieler wurde erfolgreich gespeichert'
 		});
 	});
 
 app.route('/api/players/:id') // Update player with id
 	.put((req, res) => {
 		res.json({
-			message: "Spieler mit der ID " + req.params.id + " wurde erfolgreich geupdatet"
+			message: 'Spieler mit der ID ' + req.params.id + ' wurde erfolgreich geupdatet'
 		});
 	})
 	.delete((req, res) => {	// Delete player with id
-		var flag = false;
-		for (var pos in jsonData) {
+		let flag = false;
+		for (let pos in jsonData) {
 			if (req.params.id === jsonData[pos]._id) {
 				jsonData.splice(pos, 1);
 				flag = true;
@@ -62,6 +62,6 @@ app.route('/api/players/:id') // Update player with id
 		}
 	});
 	
-app.listen(port, hostname, function() {
-	console.log("Server running at " + hostname + ":" + port);
+app.listen(port, hostname, () => {
+	console.log(`Server running at http:${hostname}:${port}`);
 });

@@ -27,12 +27,12 @@ app.use(cors());
 // App routing
 app.route('/api/players')
     .get((req, res) => {
-        if (req.query.favorites === "true") {
+        if (req.query.favorites === 'true') {
             let output = jsonData.filter((x) => {
                 return x.favorit == true;
             });
             res.send(output);
-        } else if (typeof req.query.search != "undefined") {
+        } else if (typeof req.query.search != 'undefined') {
             let output = jsonData.filter((c) => {
                 return c.name.charAt(0).toLowerCase() === req.query.search.toLowerCase();
             });
@@ -43,14 +43,14 @@ app.route('/api/players')
     })
     .post((req, res) => {
         res.json({
-            message: "Spieler wurde erfolgreich gespeichert"
+            message: 'Spieler wurde erfolgreich gespeichert'
         });
     });
 
 app.route('/api/players/:id')
     .put((req, res) => {
         res.json({
-            message: "Spieler mit der ID " + req.params.id + " wurde erfolgreich geupdatet"
+            message: 'Spieler mit der ID ' + req.params.id + ' wurde erfolgreich geupdatet'
         });
     })
     .delete((req, res) => {
@@ -95,5 +95,5 @@ io.on('connection', (socket) => {
 });
 
 http.listen(port, () => {
-	console.log("Server running at port: " + port);
+	console.log(`Server running at http:${hostname}:${port}`);
 });
