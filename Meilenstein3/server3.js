@@ -1,14 +1,13 @@
 const express = require('express');
 const app = express();
-
+const hostname = '127.0.0.1';
+const port = 3000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors());
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
+// Load JSON
 const jsonData = require('./generated.json');
 
 // Set content type to JSON
@@ -20,7 +19,7 @@ app.use((req, res, next) => {
 
 // App routing
 app.route('/api/players')
-	.get((req, res) => {	// get favorites
+	.get((req, res) => {	// Get favorites
 		if (req.query.favorites === 'true') {
 			let output = jsonData.filter((x) => {
 				return x.favorit == true;
@@ -61,6 +60,34 @@ app.route('/api/players/:id') // Update player with id
 			res.json({message: 'not found'});
 		}
 	});
+
+// When not-defined routes are being called
+app.route('*')
+    .get((req, res, next) => {
+        let err = new Error();
+        err.status = 404;
+        next(err);
+    })
+    .post((req, res, next) => {
+        let err = new Error();
+        err.status = 422;
+        next(err);
+    })
+    .put((req, res, next) => {
+        let err = new Error();
+        err.status = 409;
+        next(err);
+    })
+    .delete((req, res, next) => {
+        let err = new Error();
+        err.status = 404;
+        next(err);
+    });
+
+// Handling errors
+app.use((err, req, res, next) => {
+    res.sendStatus(err.status);
+});
 	
 app.listen(port, hostname, () => {
 	console.log(`Server running at http:${hostname}:${port}`);
