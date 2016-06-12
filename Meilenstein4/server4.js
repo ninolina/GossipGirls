@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Set content type to JSON
 app.use((req, res, next) => {
-    res.header('Content-Type','application/json');
+    res.header('Content-Type', 'application/json');
     next();
 });
 
@@ -67,33 +67,61 @@ app.route('/api/players/:id')
             res.json({message: 'not found'});
         }
     });
-	
+
+// When not-defined routes are being called
+app.route('*')
+    .get((req, res, next) => {
+        let err = new Error();
+        err.status = 404;
+        next(err);
+    })
+    .post((req, res, next) => {
+        let err = new Error();
+        err.status = 422;
+        next(err);
+    })
+    .put((req, res, next) => {
+        let err = new Error();
+        err.status = 409;
+        next(err);
+    })
+    .delete((req, res, next) => {
+        let err = new Error();
+        err.status = 404;
+        next(err);
+    });
+
 // Socket.io
 io.on('connection', (socket) => {
-	
-	var addedUser = false;
-	
-	socket.on('new message',  (data) => {
-		io.emit('new message', {
-			username: socket.username,
-			message: data
-		});
-		console.log('message:' + data);
-	});
-	
-	socket.on('add user', (username) => {
-		if (addedUser) return;
-		
-		// Store username in the socket session
-		socket.username = username;
-		addedUser = true;
-		io.emit('user joined', {
-			username: socket.username
-		});
-		console.log('user: ' + socket.username);
-	});
+
+    var addedUser = false;
+
+    socket.on('new message', (data) => {
+        io.emit('new message', {
+            username: socket.username,
+            message: data
+        });
+        console.log('message:' + data);
+    });
+
+    socket.on('add user', (username) => {
+        if (addedUser) return;
+
+        // Store username in the socket session
+        socket.username = username;
+        addedUser = true;
+        io.emit('user joined', {
+            username: socket.username
+        });
+        console.log('user: ' + socket.username);
+    });
+});
+
+// Handling errors
+app.use((err, req, res, next) => {
+    res.sendStatus(err.status);
 });
 
 http.listen(port, () => {
-	console.log(`Server running at http:${hostname}:${port}`);
+    console.log(`Server running at http:${hostname}:${port}`);
 });
