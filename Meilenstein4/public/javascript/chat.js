@@ -1,5 +1,5 @@
 $(document).ready(function () {
-      var socket = io();
+        var socket = io();
         var username;
         var inputField = $('#msg');
         var messageField = $('#messages');
@@ -25,7 +25,7 @@ $(document).ready(function () {
             area.scrollTop(area[0].scrollHeight);
         }
 
-        $('form').submit(function (e) {
+        $('form').submit( (e) =>{
             e.preventDefault();
 
             if (username) {
@@ -39,12 +39,12 @@ $(document).ready(function () {
         });
 
         // Listen to the broadcasts
-        socket.on('new message', function (data) {
+        socket.on('new message', (data) =>{
             messageField.append(data.username + ": " + data.message + "\n");
             scrollToBottom(messageField);
         });
 
-        socket.on('user joined', function (data) {
+        socket.on('user joined', (data) =>{
             messageField.append('Willkomen ' + data.username + "\n");
             scrollToBottom(messageField);
         });
